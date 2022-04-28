@@ -1,17 +1,49 @@
-<p>audios-form works!</p>
+<h3>Inserir Audio</h3>
 
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <mat-form-field appearance="fill">
-        <mat-label>Descrição</mat-label>
-        <input matInput
-            type="text"
-            id="description"
-            ngModel
-            name="description">
-    </mat-form-field>
-    
-    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-    <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
-    
-    <button mat-raised-button color="primary" type="submit">Enviar</button>
-</form>
+<mat-card>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        
+        
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px" > 
+            
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <mat-form-field appearance="fill" style="width: 300px;">
+                    <mat-label>Descrição</mat-label>
+                    <textarea matInput
+                        rows="10" cols="30"
+                        id="description"
+                        ngModel
+                        name="description">
+                    </textarea>
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout="column" fxLayoutAlign="center center">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Categoria</mat-label>
+                    <mat-select ngModel name="category">
+                    <mat-option *ngFor="let category of allCategories" [value]="category.id">
+                        {{category.name}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+          
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <input hidden 
+                        (change)="onFileSelected($event)" 
+                        #fileInput 
+                        type="file" 
+                        id="file">
+                <button type="button" 
+                        mat-raised-button 
+                        (click)="fileInput.click()">Choose File</button>
+            </div>
+
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+</mat-card>

@@ -9,8 +9,8 @@ import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
 import { AudiosModule } from './audios/audios.module';
 import { FormsModule } from '@angular/forms';
-
-
+import { AudiosService } from './services/audios.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,10 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     TemplateModule,
     AudiosModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AudiosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
