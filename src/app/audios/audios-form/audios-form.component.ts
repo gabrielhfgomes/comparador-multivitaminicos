@@ -73,7 +73,7 @@ export class AudiosFormComponent implements OnInit {
       console.log(resp);
 
       if(resp.name == this.file.name) {
-        this.alertService.success("Success, You are done");
+        this.alertService.success("Audio salvo com sucesso");
       }
     });
   }
