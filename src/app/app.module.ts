@@ -11,6 +11,7 @@ import { AudiosModule } from './audios/audios.module';
 import { FormsModule } from '@angular/forms';
 import { AudiosService } from './services/audios.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AudiosService],
+  providers: [AudiosService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

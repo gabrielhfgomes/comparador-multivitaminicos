@@ -1,8 +1,10 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { Category } from 'src/app/models/category.model';
+import { AlertService } from 'src/app/services/alert.service';
 import { AudiosService } from 'src/app/services/audios.service';
 import { CategoriesService } from 'src/app/services/categories.service';
+
 import { Audio } from '../../models/audio.model';
 
 
@@ -20,7 +22,10 @@ export class AudiosFormComponent implements OnInit {
   category: Category;
   allCategories: Category[];
 
-  constructor(private audioService: AudiosService, private categoryService: CategoriesService) { }
+  constructor(
+    private audioService: AudiosService, 
+    private categoryService: CategoriesService,
+    private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(categories => {
@@ -66,22 +71,10 @@ export class AudiosFormComponent implements OnInit {
 
     this.audioService.createAudio(audio).subscribe(resp => {
       console.log(resp);
+
+      if(resp.name == this.file.name) {
+        this.alertService.success("Success, You are done");
+      }
     });
-
-    // this.audioService.uploadFile(this.file).subscribe(resp => {
-    //   console.log(resp);
-    // });
-
-    // this.fileUploadService.upload(this.file).subscribe(
-    //     (event: any) => {
-    //         if (typeof (event) === 'object') {
-
-    //             // Short link via api response
-    //             this.shortLink = event.link;
-
-    //             this.loading = false; // Flag variable 
-    //         }
-    //     }
-    // );
   }
 }
