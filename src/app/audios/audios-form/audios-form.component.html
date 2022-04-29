@@ -24,7 +24,7 @@
                     <mat-label>Categoria</mat-label>
                     <mat-select ngModel name="category">
                     <mat-option *ngFor="let category of allCategories" [value]="category.id">
-                        {{category.name}}
+                        {{category.label}}
                     </mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -35,7 +35,8 @@
                         (change)="onFileSelected($event)" 
                         #fileInput 
                         type="file" 
-                        id="file">
+                        id="file"
+                        accept="audio/mp3">
                 <button type="button" 
                         mat-raised-button 
                         (click)="fileInput.click()">Choose File</button>

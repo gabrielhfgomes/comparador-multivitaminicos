@@ -59,15 +59,18 @@ export class AudiosFormComponent implements OnInit {
     let category = new Category();
     category.id = form.value.category;
 
-    let audio = new Audio(form.value.description, this.file.name, category);
+    let audio = new Audio(form.value.description, 
+                          this.file.name, 
+                          category, 
+                          this.file);
 
     this.audioService.createAudio(audio).subscribe(resp => {
       console.log(resp);
     });
 
-    this.audioService.uploadFile(this.file).subscribe(resp => {
-      console.log(resp);
-    });
+    // this.audioService.uploadFile(this.file).subscribe(resp => {
+    //   console.log(resp);
+    // });
 
     // this.fileUploadService.upload(this.file).subscribe(
     //     (event: any) => {
