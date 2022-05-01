@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
@@ -12,21 +11,28 @@ import { FormsModule } from '@angular/forms';
 import { AudiosService } from './services/audios.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertService } from './services/alert.service';
+import { LoginComponent } from './login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule,
     BrowserAnimationsModule,
     TemplateModule,
     AudiosModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [AudiosService, AlertService],
   bootstrap: [AppComponent]
