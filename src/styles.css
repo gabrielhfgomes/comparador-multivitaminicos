@@ -10230,3 +10230,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   overflow:
   margin-bottom: 15px;
   text-align: center;
 }
+
+mat-card {
+  top: 30px;
+}

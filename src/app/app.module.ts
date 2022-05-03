@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthService } from './services/auth.service';
 import { TokenInterceptor } from './token.interceptor';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TokenInterceptor } from './token.interceptor';
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule
   ],
   providers: [
     AudiosService, 
