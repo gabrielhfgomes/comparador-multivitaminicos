@@ -68,7 +68,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  /* background-color: gray; */
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10215,7 +10215,8 @@ body {
   background-color: #e9ecef;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   overflow: hidden; /* Hide scrollbars */
+}
 
 .alert-danger {
   background-color: #f44336; /* Red */

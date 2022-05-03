@@ -9,12 +9,14 @@ import { HomeComponent } from './home/home.component';
 import { AudiosModule } from './audios/audios.module';
 import { FormsModule } from '@angular/forms';
 import { AudiosService } from './services/audios.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertService } from './services/alert.service';
 import { LoginComponent } from './login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutComponent } from './layout/layout.component';
+import { AuthService } from './services/auth.service';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,16 @@ import { LayoutComponent } from './layout/layout.component';
     MatCardModule,
     MatButtonModule
   ],
-  providers: [AudiosService, AlertService],
+  providers: [
+    AudiosService, 
+    AlertService, 
+    AuthService, 
+    { 
+      provide: HTTP_INTERCEPTORS, 
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

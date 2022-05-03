@@ -7,7 +7,6 @@ import { MatFormFieldModule  } from '@angular/material/form-field';
 import { MatInputModule  } from '@angular/material/input';
 import { MatButtonModule  } from '@angular/material/button';
 import { MatCard, MatCardModule } from '@angular/material/card';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSelectModule} from '@angular/material/select';
