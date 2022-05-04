@@ -56,8 +56,6 @@ export class AudiosFormComponent implements OnInit {
 
 
   onSubmit(form: NgForm) {
-    console.log(form.value)
-
     this.loading = !this.loading;
     console.log(this.file);
 
