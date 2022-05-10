@@ -53,18 +53,22 @@ export class AudiosFormComponent implements OnInit {
 
 
   onSubmit(form: NgForm) {
-    this.loading = !this.loading;
-    let category = new Category();
-    category.id = form.value.category;
-    let audio = new Audio(form.value.description, 
-                          this.file.name, 
-                          category, 
-                          this.file);
-    this.audioService.createAudio(audio).subscribe(resp => {
+    if(this.file) {
       this.loading = !this.loading;
-      if(resp.name == this.file.name) {
-        this.alertService.success("Audio salvo com sucesso");
-      }
-    });
+      let category = new Category();
+      category.id = form.value.category;
+      let audio = new Audio(form.value.description, 
+                            this.file.name, 
+                            category, 
+                            this.file);
+      this.audioService.createAudio(audio).subscribe(resp => {
+        this.loading = !this.loading;
+        if(resp.name == this.file.name) {
+          this.alertService.success("Audio salvo com sucesso");
+        }
+      });
+    } else {
+      this.alertService.error("Por favor selecione um audio")
+    }
   }
 }

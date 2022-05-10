@@ -33,11 +33,11 @@
                             required
                             accept="audio/mp3">
                     <button type="button" 
-                            mat-raised-button 
+                            mat-raised-button
                             (click)="fileInput.click()">Selecionar audio</button>
                 </div>
                 <div fxLayout="column" fxLayoutAlign="center center">
-                    <button [disabled]="!f.valid" mat-raised-button type="submit">Enviar</button>
+                    <button [disabled]="!f.valid && !fileInput.value" mat-raised-button type="submit">Enviar</button>
                 </div>
             </div>
         </form>
