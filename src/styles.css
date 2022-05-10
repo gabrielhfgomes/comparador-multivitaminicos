@@ -11241,3 +11241,7 @@ body {
 mat-card {
   top: 30px;
 }
+
+mat-spinner {
+  margin-top: 100px;
+}
