@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { AudiosRoutingModule } from './audios-routing.module';
-import { AudiosFormComponent } from './audios-form/audios-form.component';
 import { MatFormFieldModule  } from '@angular/material/form-field';
 import { MatInputModule  } from '@angular/material/input';
 import { MatButtonModule  } from '@angular/material/button';
@@ -11,20 +8,31 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MatcommonModule } from '../matcommon/matcommon.module';
-
 
 @NgModule({
-  declarations: [
-    AudiosFormComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
-    AudiosRoutingModule,
-    MatcommonModule
-  ], 
-  exports: [
-    AudiosFormComponent
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
+  ], exports: [
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
   ]
 })
-export class AudiosModule { }
+export class MatcommonModule { }
