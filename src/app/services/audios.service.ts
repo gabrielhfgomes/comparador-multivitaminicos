@@ -27,4 +27,8 @@ export class AudiosService {
     }));
     return this.httpClient.post<Audio>(`${this.apiBaseUrl}/api/audios`, formData);
   }
+
+  getAllAudios(): Observable<Audio[]> {
+    return this.httpClient.get<Audio[]>(`${this.apiBaseUrl}/api/audios`);
+  }
 }
