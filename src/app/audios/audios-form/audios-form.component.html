@@ -1,48 +1,48 @@
+<div *ngIf="!loading">
 <mat-card>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-        
-        
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px" > 
-            
-            <div fxLayout="column" fxLayoutAlign="center center">
-                <mat-form-field appearance="fill" style="width: 300px;">
-                    <mat-label>Descrição</mat-label>
-                    <textarea matInput
-                        rows="10" cols="30"
-                        id="description"
-                        ngModel
-                        name="description">
-                    </textarea>
-                </mat-form-field>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20px">            
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <mat-form-field appearance="fill" style="width: 300px;">
+                        <mat-label>Descrição</mat-label>
+                        <textarea matInput
+                            rows="10" cols="30"
+                            id="description"
+                            ngModel
+                            name="description"
+                            required="">
+                        </textarea>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Categoria</mat-label>
+                        <mat-select required ngModel name="category">
+                        <mat-option *ngFor="let category of allCategories" [value]="category.id">
+                            {{category.label}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <input hidden 
+                            (change)="onFileSelected($event)" 
+                            #fileInput 
+                            type="file" 
+                            id="file"
+                            required
+                            accept="audio/mp3">
+                    <button type="button" 
+                            mat-raised-button 
+                            (click)="fileInput.click()">Selecionar audio</button>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <button [disabled]="!f.valid" mat-raised-button type="submit">Enviar</button>
+                </div>
             </div>
-            
-            <div fxLayout="column" fxLayoutAlign="center center">
-
-                <mat-form-field appearance="fill">
-                    <mat-label>Categoria</mat-label>
-                    <mat-select ngModel name="category">
-                    <mat-option *ngFor="let category of allCategories" [value]="category.id">
-                        {{category.label}}
-                    </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-          
-            <div fxLayout="column" fxLayoutAlign="center center">
-                <input hidden 
-                        (change)="onFileSelected($event)" 
-                        #fileInput 
-                        type="file" 
-                        id="file"
-                        accept="audio/mp3">
-                <button type="button" 
-                        mat-raised-button 
-                        (click)="fileInput.click()">Selecionar audio</button>
-            </div>
-
-            <div fxLayout="column" fxLayoutAlign="center center">
-                <button mat-raised-button color="primary" type="submit">Enviar</button>
-            </div>
-        </div>
-    </form>
-</mat-card>
+        </form>
+    </mat-card>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="loading">
+    <mat-spinner [diameter]="50"></mat-spinner>
+</div>

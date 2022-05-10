@@ -4,7 +4,6 @@ import { Category } from 'src/app/models/category.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { AudiosService } from 'src/app/services/audios.service';
 import { CategoriesService } from 'src/app/services/categories.service';
-
 import { Audio } from '../../models/audio.model';
 
 
@@ -14,8 +13,6 @@ import { Audio } from '../../models/audio.model';
   styleUrls: ['./audios-form.component.css']
 })
 export class AudiosFormComponent implements OnInit {
-
-
   srcResult: string;
   file: File; 
   loading: boolean = false; 
@@ -57,19 +54,14 @@ export class AudiosFormComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.loading = !this.loading;
-    console.log(this.file);
-
     let category = new Category();
     category.id = form.value.category;
-
     let audio = new Audio(form.value.description, 
                           this.file.name, 
                           category, 
                           this.file);
-
     this.audioService.createAudio(audio).subscribe(resp => {
-      console.log(resp);
-
+      this.loading = !this.loading;
       if(resp.name == this.file.name) {
         this.alertService.success("Audio salvo com sucesso");
       }

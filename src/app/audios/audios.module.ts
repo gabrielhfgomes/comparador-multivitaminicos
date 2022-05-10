@@ -10,6 +10,7 @@ import { MatCard, MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatCardModule,
     FlexLayoutModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ], 
   exports: [
     AudiosFormComponent
