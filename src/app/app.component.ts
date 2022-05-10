@@ -10,6 +10,6 @@ export class AppComponent implements AfterViewInit {
   title = 'front-oratoria';
 
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
   }
 }

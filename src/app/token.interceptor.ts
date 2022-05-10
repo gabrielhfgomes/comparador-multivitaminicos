@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -18,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     const url = request.url;
 
-    if(token_string && !url.endsWith('/oauth/token')) {
+    if (token_string && !url.endsWith('/oauth/token')) {
       const token = JSON.parse(token_string);
       const jwt = token.access_token;
       request = request.clone({

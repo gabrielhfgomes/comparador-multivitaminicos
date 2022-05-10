@@ -14,13 +14,13 @@ import { Audio } from '../../models/audio.model';
 })
 export class AudiosFormComponent implements OnInit {
   srcResult: string;
-  file: File; 
-  loading: boolean = false; 
+  file: File;
+  loading: boolean = false;
   category: Category;
   allCategories: Category[];
 
   constructor(
-    private audioService: AudiosService, 
+    private audioService: AudiosService,
     private categoryService: CategoriesService,
     private alertService: AlertService) { }
 
@@ -35,14 +35,14 @@ export class AudiosFormComponent implements OnInit {
     const inputNode: any = document.querySelector('#file');
 
     this.file = event.target.files[0];
-  
+
     if (typeof (FileReader) !== 'undefined') {
       const reader = new FileReader();
-  
+
       reader.onload = (e: any) => {
         this.srcResult = e.target.result;
       };
-  
+
       reader.readAsArrayBuffer(inputNode.files[0]);
     }
   }
@@ -53,17 +53,17 @@ export class AudiosFormComponent implements OnInit {
 
 
   onSubmit(form: NgForm) {
-    if(this.file) {
+    if (this.file) {
       this.loading = !this.loading;
       let category = new Category();
       category.id = form.value.category;
-      let audio = new Audio(form.value.description, 
-                            this.file.name, 
-                            category, 
-                            this.file);
+      let audio = new Audio(form.value.description,
+        this.file.name,
+        category,
+        this.file);
       this.audioService.createAudio(audio).subscribe(resp => {
         this.loading = !this.loading;
-        if(resp.name == this.file.name) {
+        if (resp.name == this.file.name) {
           this.alertService.success("Audio salvo com sucesso");
         }
       });

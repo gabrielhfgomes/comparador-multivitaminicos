@@ -18,13 +18,13 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router
-    ) { }
+  ) { }
 
   tryLogin(login: string, password: string): Observable<any> {
     const params = new HttpParams()
-            .set('username', login)
-            .set('password', password)
-            .set('grant_type', 'password');
+      .set('username', login)
+      .set('password', password)
+      .set('grant_type', 'password');
 
     const headers = {
       'Authorization': 'Basic ' + btoa(`${this.clientId}:${this.clientSecret}`),
@@ -34,9 +34,9 @@ export class AuthService {
     return this.http.post(this.tokenUrl, params.toString(), { headers });
   }
 
-  isAutheticated() : boolean {
+  isAutheticated(): boolean {
     let token = this.getToken();
-    if(token) {
+    if (token) {
       const isExpired = this.jwtHelper.isTokenExpired(token);
       return !isExpired;
     }
@@ -45,7 +45,7 @@ export class AuthService {
 
   getToken() {
     const token_string = localStorage.getItem('access_token');
-    if(token_string) {
+    if (token_string) {
       return JSON.parse(token_string).access_token;
     }
     return null;
@@ -53,7 +53,7 @@ export class AuthService {
 
   getAuthenticatedUser() {
     let token = this.getToken()
-    if(token) {
+    if (token) {
       let username = this.jwtHelper.decodeToken(token).user_name;
       return username;
     }

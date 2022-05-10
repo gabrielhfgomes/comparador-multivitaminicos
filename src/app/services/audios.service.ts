@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AudiosService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   apiBaseUrl: string = environment.apiBaseUrl;
 
@@ -18,8 +18,8 @@ export class AudiosService {
     formData.append("file", audio.file, audio.file.name);
     formData.append('audio', new Blob([JSON.stringify({
       "name": audio.name,
-      "description": audio.description, 
-      "category": { 
+      "description": audio.description,
+      "category": {
         "id": audio.category.id
       }
     })], {

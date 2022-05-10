@@ -7,11 +7,11 @@ import { AuthService } from './services/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  
+
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -19,12 +19,12 @@ export class AuthGuard implements CanActivate {
 
     let isAutheticated = this.authService.isAutheticated();
 
-    if(isAutheticated) {
-      return true; 
+    if (isAutheticated) {
+      return true;
     }
 
     this.router.navigate(['/login']);
     return false;
   }
-  
+
 }

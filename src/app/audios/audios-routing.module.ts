@@ -5,17 +5,19 @@ import { LayoutComponent } from '../layout/layout.component';
 import { AudiosFormComponent } from './audios-form/audios-form.component';
 
 const routes: Routes = [
-  { path: 'audios', component: LayoutComponent,  canActivate: [AuthGuard], children: [
-    { path: 'form', component: AudiosFormComponent }
-  ]}
+  {
+    path: 'audios', component: LayoutComponent, canActivate: [AuthGuard], children: [
+      { path: 'form', component: AudiosFormComponent }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AudiosRoutingModule implements OnInit { 
+export class AudiosRoutingModule implements OnInit {
 
-  ngOnInit() : void {}
+  ngOnInit(): void { }
 
 }

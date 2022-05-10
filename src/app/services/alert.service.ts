@@ -5,7 +5,7 @@ import { filter } from 'rxjs/operators';
 import { Alert, AlertType } from '../models/alert.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AlertService {
 

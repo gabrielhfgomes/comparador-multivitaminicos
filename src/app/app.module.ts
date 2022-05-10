@@ -39,11 +39,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule
   ],
   providers: [
-    AudiosService, 
-    AlertService, 
-    AuthService, 
-    { 
-      provide: HTTP_INTERCEPTORS, 
+    AudiosService,
+    AlertService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
     }
