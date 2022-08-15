@@ -1,0 +1,26 @@
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Multivitamínico</mat-label>
+            <mat-select required ngModel name="multivitaminico" (ngModelChange)="chooseMulti($event)">
+                <mat-option *ngFor="let multi of multivitaminicos" [value]="multi.id">
+                    {{multi.nome}}
+                </mat-option>
+
+            </mat-select>    
+        </mat-form-field> -->
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Multivitamínico</mat-label>
+            <input type="text"
+                   placeholder="Selecione"
+                   aria-label="Multivitamínico"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="chooseMulti($event)">
+              <mat-option *ngFor="let multi of filteredMulti | async" [value]="multi.nome" >
+                {{multi.nome}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        <img *ngIf="multi1 != null" class="img-mult" src="{{multi1.pathToImg}}">
+    </div>
