@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { Multivitaminico } from 'src/app/models/multivitaminico.model';
+import { Nutrientes } from 'src/app/models/nutrientes.model';
 
 @Component({
   selector: 'app-multivitaminico',
@@ -20,13 +21,15 @@ export class MultivitaminicoComponent implements OnInit {
   multivitaminicos: Multivitaminico[] = [ 
     {
       "id": 1,
-      "nome": "Sentrum",
-      "pathToImg": "../../../assets/centrum-de-a-a-zinco-com-150-comprimidos-cf2.jpeg"
-    }, 
+      "nome": "Centrum",
+      "pathToImg": "../../../assets/centrum-de-a-a-zinco-com-150-comprimidos-cf2.jpeg",
+      "nutrientes": new Nutrientes(30, 0, 0, 0)
+    },
     {
       "id": 2,
       "nome": "Multi Growth Supplements",
-      "pathToImg": "../../../assets/multivitaminico-120-caps-nova-f-rmula-growth-supplements.jpeg"
+      "pathToImg": "../../../assets/multivitaminico-120-caps-nova-f-rmula-growth-supplements.jpeg",
+      "nutrientes": new Nutrientes(0, 0, 0, 0)
     }
   ];
   

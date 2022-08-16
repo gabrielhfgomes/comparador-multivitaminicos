@@ -22,5 +22,10 @@
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
-        <img *ngIf="multi1 != null" class="img-mult" src="{{multi1.pathToImg}}">
+        <div *ngIf="multi1 != null">
+          <img class="img-mult" src="{{multi1.pathToImg}}"><br>
+          <p>{{multi1.nutrientes.cromo.label}}:{{multi1.nutrientes.cromo.valor}}</p>
+        <div>
+
+
     </div>

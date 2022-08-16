@@ -6,13 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
-import { AudiosService } from './services/audios.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AlertService } from './services/alert.service';
+import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutComponent } from './layout/layout.component';
-import { AuthService } from './services/auth.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatCommonModule } from '@angular/material/core';
@@ -45,9 +42,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    AudiosService,
-    AlertService,
-    AuthService,
   ],
   bootstrap: [AppComponent]
 })
