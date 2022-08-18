@@ -43,16 +43,17 @@ export class MultivitaminicoComponent implements OnInit {
 
 
   calculatePercentual() {
-    if(this.otherMulti.nutrientes.cromo.valor < this.multi1.nutrientes.cromo.valor) {
-      this.otherMulti.nutrientes.cromo.percentCompareColor = "color: green";
-      this.otherMulti.nutrientes.cromo.percentCompareString = "+" + ((1-(this.otherMulti.nutrientes.cromo.valor/this.multi1.nutrientes.cromo.valor))*100).toString() + "%"
-    } else if(this.otherMulti.nutrientes.cromo.valor == this.multi1.nutrientes.cromo.valor){
-      this.otherMulti.nutrientes.cromo.percentCompareColor = "color: blue";
-      this.otherMulti.nutrientes.cromo.percentCompareString = ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
-    } else {
-      this.otherMulti.nutrientes.cromo.percentCompareColor = "color: red";
-      this.otherMulti.nutrientes.cromo.percentCompareString = "-" + ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
-    }
+    // if(this.otherMulti.nutrientes.cromo.valor < this.multi1.nutrientes.cromo.valor) {
+    //   this.otherMulti.nutrientes.cromo.percentCompareColor = "color: green";
+    //   this.otherMulti.nutrientes.cromo.percentCompareString = "+" + ((1-(this.otherMulti.nutrientes.cromo.valor/this.multi1.nutrientes.cromo.valor))*100).toString() + "%"
+    // } else if(this.otherMulti.nutrientes.cromo.valor == this.multi1.nutrientes.cromo.valor){
+    //   this.otherMulti.nutrientes.cromo.percentCompareColor = "color: blue";
+    //   this.otherMulti.nutrientes.cromo.percentCompareString = ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
+    // } else {
+    //   this.otherMulti.nutrientes.cromo.percentCompareColor = "color: red";
+    //   this.otherMulti.nutrientes.cromo.percentCompareString = "-" + ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
+    // }
+    this.otherMulti.calculatePercentual(this.multi1);
   }
 
   ngOnInit(): void {
