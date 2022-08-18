@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
+import { map, Observable, startWith, Subscription } from 'rxjs';
 import { Multivitaminico } from 'src/app/models/multivitaminico.model';
 import { Nutrientes } from 'src/app/models/nutrientes.model';
+import { MultivitaminicoService } from 'src/app/services/multivitaminico.service';
 
 @Component({
   selector: 'app-multivitaminico',
@@ -10,29 +11,50 @@ import { Nutrientes } from 'src/app/models/nutrientes.model';
   styleUrls: ['./multivitaminico.component.css']
 })
 export class MultivitaminicoComponent implements OnInit {
-
-
-  constructor(private formBuilder: FormBuilder) { }
-
   multi1: Multivitaminico;
+  otherMulti: Multivitaminico;
   filteredMulti: Observable<Multivitaminico[]>;
   myControl = new FormControl();
+  @Output() multEmitter = new EventEmitter<number>();
+  @Input() multivitaminicos: Multivitaminico[];
+  @Input() multinumber: number;
+  multivitaminicoService: MultivitaminicoService;
 
-  multivitaminicos: Multivitaminico[] = [ 
-    {
-      "id": 1,
-      "nome": "Centrum",
-      "pathToImg": "../../../assets/centrum-de-a-a-zinco-com-150-comprimidos-cf2.jpeg",
-      "nutrientes": new Nutrientes(30, 0, 0, 0)
-    },
-    {
-      "id": 2,
-      "nome": "Multi Growth Supplements",
-      "pathToImg": "../../../assets/multivitaminico-120-caps-nova-f-rmula-growth-supplements.jpeg",
-      "nutrientes": new Nutrientes(0, 0, 0, 0)
+  subscription: Subscription;
+
+  constructor(private formBuilder: FormBuilder, multivitaminicoService: MultivitaminicoService) { 
+    this.multivitaminicoService = multivitaminicoService;
+    this.subscription = multivitaminicoService.multivitaminico2Selected.subscribe(
+      multivitaminico => {
+        if(this.multinumber == 1) {
+          this.otherMulti = multivitaminico
+          this.calculatePercentual();
+        } 
+      });
+
+    this.subscription = multivitaminicoService.multivitaminico1Selected.subscribe(
+      multivitaminico => {
+        if(this.multinumber == 1) {
+          this.otherMulti = multivitaminico
+          this.calculatePercentual();
+        }
+      });
+  }
+
+
+  calculatePercentual() {
+    if(this.otherMulti.nutrientes.cromo.valor < this.multi1.nutrientes.cromo.valor) {
+      this.otherMulti.nutrientes.cromo.percentCompareColor = "color: green";
+      this.otherMulti.nutrientes.cromo.percentCompareString = "+" + ((1-(this.otherMulti.nutrientes.cromo.valor/this.multi1.nutrientes.cromo.valor))*100).toString() + "%"
+    } else if(this.otherMulti.nutrientes.cromo.valor == this.multi1.nutrientes.cromo.valor){
+      this.otherMulti.nutrientes.cromo.percentCompareColor = "color: blue";
+      this.otherMulti.nutrientes.cromo.percentCompareString = ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
+    } else {
+      this.otherMulti.nutrientes.cromo.percentCompareColor = "color: red";
+      this.otherMulti.nutrientes.cromo.percentCompareString = "-" + ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
     }
-  ];
-  
+  }
+
   ngOnInit(): void {
     this.filteredMulti = this.myControl.valueChanges
       .pipe(
@@ -50,6 +72,12 @@ export class MultivitaminicoComponent implements OnInit {
     let multi = this.multivitaminicos.find(multi => multi.nome == optionSelected.option.value);
     if(!!multi) {
       this.multi1 = multi;
+      this.multEmitter.emit(multi.id);
+      if(this.multinumber == 2) {
+        this.multivitaminicoService.forwarMultivitaminico2(multi);
+      } else {
+        this.calculatePercentual();
+      }
     }
   }
 

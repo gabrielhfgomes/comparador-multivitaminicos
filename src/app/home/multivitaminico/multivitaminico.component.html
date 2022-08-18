@@ -1,31 +1,47 @@
-    <div fxLayout="column" fxLayoutAlign="center center">
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Multivitamínico</mat-label>
-            <mat-select required ngModel name="multivitaminico" (ngModelChange)="chooseMulti($event)">
-                <mat-option *ngFor="let multi of multivitaminicos" [value]="multi.id">
+  <div fxLayout="column" fxLayoutAlign="space-between none">
+        <mat-card fxLayout="row">
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill" style="border-radius: 10px">
+                <mat-label>Selecione o Multivitamínico:</mat-label>
+                <input type="text"
+                        placeholder="Selecione"
+                        aria-label="Multivitamínico"
+                        matInput
+                        [formControl]="myControl"
+                        [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="chooseMulti($event)">
+                  <mat-option *ngFor="let multi of filteredMulti | async" [value]="multi.nome" >
                     {{multi.nome}}
-                </mat-option>
-
-            </mat-select>    
-        </mat-form-field> -->
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Multivitamínico</mat-label>
-            <input type="text"
-                   placeholder="Selecione"
-                   aria-label="Multivitamínico"
-                   matInput
-                   [formControl]="myControl"
-                   [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="chooseMulti($event)">
-              <mat-option *ngFor="let multi of filteredMulti | async" [value]="multi.nome" >
-                {{multi.nome}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        <div *ngIf="multi1 != null">
-          <img class="img-mult" src="{{multi1.pathToImg}}"><br>
-          <p>{{multi1.nutrientes.cromo.label}}:{{multi1.nutrientes.cromo.valor}}</p>
-        <div>
-
-
-    </div>
+                  </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <img *ngIf="multi1 != null" class="img-mult" src="{{multi1.pathToImg}}"><br><br>
+            <div *ngIf="multi1 != null">
+              <p>Tamanho do comprimido {{multi1.tamanho}} g</p>
+              <div fxLayout="row">{{multi1.nutrientes.cromo.label}}: {{multi1.nutrientes.cromo.valor}} mg 
+                <div *ngIf="otherMulti != null">
+                  <p style="{{otherMulti.nutrientes.cromo.percentCompareColor}}">&nbsp;{{otherMulti.nutrientes.cromo.percentCompareString}}</p>
+                </div>
+              </div>
+              <div fxLayout="row">{{multi1.nutrientes.ferro.label}}: {{multi1.nutrientes.ferro.valor}} mg
+                <div *ngIf="otherMulti != null">
+                  <p style="{{otherMulti.nutrientes.ferro.percentCompareColor}}">&nbsp;{{otherMulti.nutrientes.ferro.percentCompareString}}</p>
+                </div>
+              </div>
+              <div>{{multi1.nutrientes.magnesio.label}}: {{multi1.nutrientes.magnesio.valor}} mg</div>
+              <div>{{multi1.nutrientes.zinco.label}}: {{multi1.nutrientes.zinco.valor}} mg</div>
+              <div>{{multi1.nutrientes.iodo.label}}: {{multi1.nutrientes.iodo.valor}} mg</div>
+              <div>{{multi1.nutrientes.cobre.label}}: {{multi1.nutrientes.cobre.valor}} mg</div>
+              <div>{{multi1.nutrientes.selenio.label}}: {{multi1.nutrientes.selenio.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_a.label}}: {{multi1.nutrientes.vitamina_a.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_b.label}}: {{multi1.nutrientes.vitamina_b.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_d.label}}: {{multi1.nutrientes.vitamina_d.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_e.label}}: {{multi1.nutrientes.vitamina_e.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_k.label}}: {{multi1.nutrientes.vitamina_k.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_b1.label}}: {{multi1.nutrientes.vitamina_b1.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_b2.label}}: {{multi1.nutrientes.vitamina_b2.valor}} mg</div>
+              <div>{{multi1.nutrientes.vitamina_b3.label}}: {{multi1.nutrientes.vitamina_b3.valor}} mg</div>
+            </div>
+          </div>  
+        </mat-card>
+  </div>

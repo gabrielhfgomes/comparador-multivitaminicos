@@ -220,7 +220,7 @@ img {
 }
 
 svg {
-  overflow: hidden;
+  
   vertical-align: middle;
 }
 
@@ -617,6 +617,7 @@ pre code {
 .container-lg,
 .container-md,
 .container-sm {
+  margin-top: 50px;
   width: 100%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
@@ -3395,7 +3396,7 @@ input[type=button].btn-block {
 .collapsing {
   position: relative;
   height: 0;
-  overflow: hidden;
+  
   transition: height 0.35s ease;
 }
 
@@ -3606,7 +3607,7 @@ input[type=button].btn-block {
 .dropdown-divider {
   height: 0;
   margin: 0.5rem 0;
-  overflow: hidden;
+  
   border-top: 1px solid #e9ecef;
 }
 
@@ -5182,7 +5183,7 @@ input[type=button].btn-block {
 }
 
 .accordion>.card {
-  overflow: hidden;
+  
 }
 
 .accordion>.card:not(:last-of-type) {
@@ -5681,7 +5682,7 @@ a.badge-dark.focus {
 .progress {
   display: flex;
   height: 1rem;
-  overflow: hidden;
+  
   font-size: 0.75rem;
   background-color: #e9ecef;
   border-radius: 0.25rem;
@@ -5691,7 +5692,7 @@ a.badge-dark.focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  
   color: #fff;
   text-align: center;
   white-space: nowrap;
@@ -6131,7 +6132,7 @@ a.close.disabled {
 
 .toast {
   max-width: 350px;
-  overflow: hidden;
+  
   font-size: 0.875rem;
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
@@ -6175,7 +6176,7 @@ a.close.disabled {
 }
 
 .modal-open {
-  overflow: hidden;
+  
 }
 
 .modal-open .modal {
@@ -6191,7 +6192,7 @@ a.close.disabled {
   display: none;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  
   outline: 0;
 }
 
@@ -6228,7 +6229,7 @@ a.close.disabled {
 
 .modal-dialog-scrollable .modal-content {
   max-height: calc(100vh - 1rem);
-  overflow: hidden;
+  
 }
 
 .modal-dialog-scrollable .modal-header,
@@ -6700,7 +6701,7 @@ a.close.disabled {
 .carousel-inner {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  
 }
 
 .carousel-inner::after {
@@ -7425,7 +7426,7 @@ button.bg-dark:focus {
   display: block;
   width: 100%;
   padding: 0;
-  overflow: hidden;
+  
 }
 
 .embed-responsive::before {
@@ -8297,7 +8298,7 @@ button.bg-dark:focus {
   height: 1px;
   padding: 0;
   margin: -1px;
-  overflow: hidden;
+  
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
@@ -10590,7 +10591,7 @@ button.bg-dark:focus {
 }
 
 .text-truncate {
-  overflow: hidden;
+  
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -11218,7 +11219,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow: hidden;
+  
   /* Hide scrollbars */
 }
 

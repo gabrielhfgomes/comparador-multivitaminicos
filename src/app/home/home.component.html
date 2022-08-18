@@ -1,11 +1,6 @@
 
 
 <div fxLayout="row" fxLayoutAlign="space-evenly center" >
-    <mat-card fxLayout="column">
-        <app-multivitaminico></app-multivitaminico>
-    </mat-card>
-
-    <mat-card fxLayout="column">
-        <app-multivitaminico></app-multivitaminico>
-    </mat-card>
+    <app-multivitaminico [multinumber]="1" [multivitaminicos]="multivitaminicos" (multEmitter)="onSelectedMulti1($event)"></app-multivitaminico>
+    <app-multivitaminico [multinumber]="2" [multivitaminicos]="multivitaminicos" (multEmitter)="onSelectedMulti2($event)"></app-multivitaminico>
 </div>
