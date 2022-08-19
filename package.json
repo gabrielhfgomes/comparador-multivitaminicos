@@ -1,6 +1,6 @@
 {
-  "name": "front-oratoria",
-  "version": "0.0.0",
+  "name": "comparador-multivitaminicos",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "e2e": "ng e2e",
@@ -31,7 +31,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.3.3",
+    "@angular-devkit/build-angular": "^0.1102.19",
     "@angular/cli": "~13.3.3",
     "@angular/compiler-cli": "~13.3.0",
     "@types/jasmine": "~3.10.0",
