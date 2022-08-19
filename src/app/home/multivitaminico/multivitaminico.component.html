@@ -18,29 +18,12 @@
             <img *ngIf="multi1 != null" class="img-mult" src="{{multi1.pathToImg}}"><br><br>
             <div *ngIf="multi1 != null">
               <p>Tamanho do comprimido {{multi1.tamanho}} g</p>
-              <div fxLayout="row">{{multi1.nutrientes[0].label}}: {{multi1.nutrientes[0].valor}} mg 
+              <p>Quantidade de Capsulas: {{multi1.capsulas}}</p>
+              <div *ngFor="let nutriente of multi1.nutrientes; index as i;" fxLayout="row">{{multi1.nutrientes[i].label}}: {{multi1.nutrientes[i].valor}} {{multi1.nutrientes[i].unidadeDeMedida}}
                 <div *ngIf="otherMulti != null">
-                  <p style="{{otherMulti.nutrientes[0].percentCompareColor}}">&nbsp;{{otherMulti.nutrientes[0].percentCompareString}}</p>
+                  <div style="{{otherMulti.nutrientes[i].percentCompareColor}}">&nbsp;{{otherMulti.nutrientes[i].percentCompareString}}</div>
                 </div>
-              </div>
-              <div fxLayout="row">{{multi1.nutrientes[1].label}}: {{multi1.nutrientes[1].valor}} mg
-                <div *ngIf="otherMulti != null">
-                  <p style="{{otherMulti.nutrientes[1].percentCompareColor}}">&nbsp;{{otherMulti.nutrientes[1].percentCompareString}}</p>
-                </div>
-              </div>
-              <!-- <div>{{multi1.nutrientes[0].label}}: {{multi1.nutrientes[0].valor}} mg</div>
-              <div>{{multi1.nutrientes[1].label}}: {{multi1.nutrientes[0].valor}} mg</div>
-              <div>{{multi1.nutrientes[2].label}}: {{multi1.nutrientes[0].valor}} mg</div>
-              <div>{{multi1.nutrientes[3].label}}: {{multi1.nutrientes[0].valor}} mg</div>
-              <div>{{multi1.nutrientes[4].label}}: {{multi1.nutrientes[0].valor}} mg</div>
-              <div>{{multi1.nutrientes[5].label}}: {{multi1.nutrientes[0].valor}} mg</div> -->
-              <!-- <div>{{multi1.nutrientes[6].label}}: {{multi1.nutrientes.vitamina_b.valor}} mg</div>
-              <div>{{multi1.nutrientes[7].label}}: {{multi1.nutrientes.vitamina_d.valor}} mg</div>
-              <div>{{multi1.nutrientes[8].label}}: {{multi1.nutrientes.vitamina_e.valor}} mg</div>
-              <div>{{multi1.nutrientes[9].label}}: {{multi1.nutrientes.vitamina_k.valor}} mg</div>
-              <div>{{multi1.nutrientes[10].label}}: {{multi1.nutrientes.vitamina_b1.valor}} mg</div>
-              <div>{{multi1.nutrientes[11].label}}: {{multi1.nutrientes.vitamina_b2.valor}} mg</div>
-              <div>{{multi1.nutrientes[12].label}}: {{multi1.nutrientes.vitamina_b3.valor}} mg</div> -->
+              </div> 
             </div>
           </div>  
         </mat-card>

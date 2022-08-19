@@ -12,4 +12,5 @@ export class Nutriente {
     percentCompare?: number;
     percentCompareString?: string;
     percentCompareColor?: string;
+    unidadeDeMedida: string;
 }

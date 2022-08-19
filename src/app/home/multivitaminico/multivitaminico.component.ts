@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { map, Observable, startWith, Subscription } from 'rxjs';
 import { Multivitaminico } from 'src/app/models/multivitaminico.model';
-import { Nutrientes } from 'src/app/models/nutrientes.model';
 import { MultivitaminicoService } from 'src/app/services/multivitaminico.service';
 
 @Component({
@@ -28,7 +27,7 @@ export class MultivitaminicoComponent implements OnInit {
       multivitaminico => {
         if(this.multinumber == 1) {
           this.otherMulti = multivitaminico
-          this.calculatePercentual();
+          this.otherMulti.calculatePercentual(this.multi1);
         } 
       });
 
@@ -36,25 +35,11 @@ export class MultivitaminicoComponent implements OnInit {
       multivitaminico => {
         if(this.multinumber == 1) {
           this.otherMulti = multivitaminico
-          this.calculatePercentual();
+          this.otherMulti.calculatePercentual(this.multi1);
         }
       });
   }
 
-
-  calculatePercentual() {
-    // if(this.otherMulti.nutrientes.cromo.valor < this.multi1.nutrientes.cromo.valor) {
-    //   this.otherMulti.nutrientes.cromo.percentCompareColor = "color: green";
-    //   this.otherMulti.nutrientes.cromo.percentCompareString = "+" + ((1-(this.otherMulti.nutrientes.cromo.valor/this.multi1.nutrientes.cromo.valor))*100).toString() + "%"
-    // } else if(this.otherMulti.nutrientes.cromo.valor == this.multi1.nutrientes.cromo.valor){
-    //   this.otherMulti.nutrientes.cromo.percentCompareColor = "color: blue";
-    //   this.otherMulti.nutrientes.cromo.percentCompareString = ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
-    // } else {
-    //   this.otherMulti.nutrientes.cromo.percentCompareColor = "color: red";
-    //   this.otherMulti.nutrientes.cromo.percentCompareString = "-" + ((1-(this.multi1.nutrientes.cromo.valor/this.otherMulti.nutrientes.cromo.valor))*100).toString() + "%"
-    // }
-    this.otherMulti.calculatePercentual(this.multi1);
-  }
 
   ngOnInit(): void {
     this.filteredMulti = this.myControl.valueChanges
@@ -77,7 +62,7 @@ export class MultivitaminicoComponent implements OnInit {
       if(this.multinumber == 2) {
         this.multivitaminicoService.forwarMultivitaminico2(multi);
       } else {
-        this.calculatePercentual();
+        this.otherMulti.calculatePercentual(this.multi1);
       }
     }
   }
