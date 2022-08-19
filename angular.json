@@ -32,7 +32,6 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [              
-              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ]
           },
@@ -108,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "comparador-multivitaminicos"
+  "defaultProject": "comparador-multivitaminicos",
+  "cli": {
+    "analytics": "96b2cd67-a50c-4e76-8ea1-521705e9db54"
+  }
 }
