@@ -18,6 +18,7 @@ export class MultivitaminicoComponent implements OnInit {
   @Input() multivitaminicos: Multivitaminico[];
   @Input() multinumber: number;
   multivitaminicoService: MultivitaminicoService;
+  selecioneMultivitaminicoLabel: string;
 
   subscription: Subscription;
 
@@ -47,6 +48,7 @@ export class MultivitaminicoComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       )
+      this.selecioneMultivitaminicoLabel = "Selecione o Multivitamínico " + this.multinumber + ":";
   }
 
   private _filter(value: string): Multivitaminico[] {

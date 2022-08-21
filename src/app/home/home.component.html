@@ -1,6 +1,42 @@
 
+<div fxLayout="column" fxLayoutAlign="space-around none" fxFlexAlign="stretch">
+   
+    <div fxLayout="row" fxLayoutAlign="space-evenly none" style="font-size: 20px; margin-top: 30px; font-family: 'Proxima nova', sans-serif;">
+        Selecione os multivitamínicos:
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <app-multivitaminico  [multinumber]="1" [multivitaminicos]="multivitaminicos" (multEmitter)="onSelectedMulti1($event)"></app-multivitaminico>
+        <app-multivitaminico  [multinumber]="2" [multivitaminicos]="multivitaminicos" (multEmitter)="onSelectedMulti2($event)"></app-multivitaminico>
+    </div>
 
-<div fxLayout="row" fxLayoutAlign="space-evenly center" >
-    <app-multivitaminico [multinumber]="1" [multivitaminicos]="multivitaminicos" (multEmitter)="onSelectedMulti1($event)"></app-multivitaminico>
-    <app-multivitaminico [multinumber]="2" [multivitaminicos]="multivitaminicos" (multEmitter)="onSelectedMulti2($event)"></app-multivitaminico>
+    <div *ngIf="multi2 != null" fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-top: 30px">
+        <mat-card>
+            <app-bar-chart [multi1]="multi1" [multi2]="multi2"></app-bar-chart>
+        </mat-card>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-top: 100px; margin-bottom: 30px;">
+        <mat-card style="width: 1200px">
+            <mat-card-title style="font-size: 25px;font-family: 'Proxima nova', sans-serif; font-weight: 800">
+                O que são multivitamínicos?
+            </mat-card-title>
+            <mat-card-content style="font-size:18px; font-family: 'Proxima nova', sans-serif; font-weight: 300; margin-top: 20px">
+                Um multivitamínico é um complexo que abrenge todos os micronutrientes, sendo assim composto por vitaminas e mineirais. Esses micronutrientes podem ser vitaminas do complexo B, Vitamina A, Vitamina E, Vitamina C, Vitamina K, Selênio, Manganês, Molibdenio, Zinco, Cromo, Bora, entre muitos outros.
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-top: 30px; margin-bottom: 100px;">
+        <mat-card style="width: 1200px">
+            <mat-card-title style="font-size: 25px;font-family: 'Proxima nova', sans-serif; font-weight: 800">
+                Quando utilizar multivitamínicos?
+            </mat-card-title>
+            <mat-card-content style="font-size:18px; font-family: 'Proxima nova', sans-serif; font-weight: 300; margin-top: 20px">
+                Os multivitaminicos podem ser utilizados em vários cenários, mas o cenário mais comum é quando a pessoa precisa realizar a ingestão mínima de vitaminas para que seja possível ter o mehor funcionamento do corpo. Sendo assim cada tipo de alimento possuio uma quantidade específica de vitaminas, e o preparo e consumo de todas esses alimentos em suas quantidades necessárias pode ser exaustivo e em alguns cenários de restrição calórica isso torna-se inviável.
+                É nesse momento que entra em cena o multivitaminico, para suprir toda essa carência por vitaminas e minerais.
+            </mat-card-content>
+        </mat-card>
+    </div>
+
 </div>

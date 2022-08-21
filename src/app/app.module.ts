@@ -16,6 +16,8 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatcommonModule } from './matcommon/matcommon.module';
 import { MultivitaminicoComponent } from './home/multivitaminico/multivitaminico.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './home/bar-chart/bar-chart.component';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     LayoutComponent,
-    MultivitaminicoComponent
+    MultivitaminicoComponent,
+    BarChartComponent
   ],
   imports: [
     MatcommonModule,
@@ -36,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgChartsModule
   ],
   exports: [
     ReactiveFormsModule
