@@ -53,7 +53,7 @@ export class MultivitaminicoComponent implements OnInit {
 
   private _filter(value: string): Multivitaminico[] {
     const filterValue = value.toLowerCase();
-    return this.multivitaminicos.filter(option => option.nome.toLowerCase().indexOf(filterValue) === 0);
+    return this.multivitaminicos.filter(option => option.nome.toLowerCase().includes(filterValue));
   }
 
   chooseMulti(optionSelected: any) {
