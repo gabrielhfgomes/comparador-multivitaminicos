@@ -18,6 +18,7 @@ import { MultivitaminicoComponent } from './home/multivitaminico/multivitaminico
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './home/bar-chart/bar-chart.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 
 @NgModule({
@@ -40,7 +41,12 @@ import { BarChartComponent } from './home/bar-chart/bar-chart.component';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    NgChartsModule
+    NgChartsModule,
+    // shown passing global defaults (optional)
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-2592409107142671',
+      adSlot: 3680418353,
+    }),
   ],
   exports: [
     ReactiveFormsModule

@@ -43,3 +43,5 @@ Thumbs.db
 
 /src/environments/*
 node/
+
+package-lock.json
