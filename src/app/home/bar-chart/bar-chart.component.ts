@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -11,7 +11,7 @@ import { Multivitaminico } from 'src/app/models/multivitaminico.model';
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css']
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent implements OnChanges {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
@@ -22,10 +22,20 @@ export class BarChartComponent implements OnInit {
   multi2: Multivitaminico;
 
 
+  ngOnChanges() {
+    this.reloadChart();
+    this.chart?.chart?.update();
+  }
+
   constructor() { }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  //   this.reloadChart();
+  // }
 
+  private reloadChart() {
+    this.barChartData.datasets = [];
+    this.barChartData.labels = [];
     let valorNutrientesMult1: any = [];
     this.multi1.nutrientes.forEach(nutriente => {
       this.barChartData.labels?.push(nutriente.label);
