@@ -14,7 +14,9 @@ export class Multivitaminico {
         vitaminaAValor: number, vitaminaDValor: number, vitaminaEValor: number,
         vitaminaKValor: number, vitaminaB1Valor: number, vitaminaB2Valor: number, vitaminaB3Valor: number,
         vitaminaB5Valor: number, vitaminaB6Valor: number, vitaminaB9Valor: number,
-        vitaminaB12Valor: number, biotinaValor: number, sodioValor: number) {
+        vitaminaB12Valor: number, biotinaValor: number, sodioValor: number, calcioValor: number,
+        vitaminaCValor: number, cloroValor: number, fosforoValor: number, potassioValor: number,
+        manganesValor: number) {
             
         this.id = id;
         this.nome = nome;
@@ -64,9 +66,19 @@ export class Multivitaminico {
             unidadeDeMedida: "mcg"
         },
         {
+            label: "Cálcio",
+            valor: calcioValor,
+            unidadeDeMedida: "mg"
+        },
+        {
             label: "Vitamina A",
             valor: vitaminaAValor,
             unidadeDeMedida: "mcg"
+        },
+        {
+            label: "Vitamina C",
+            valor: vitaminaCValor,
+            unidadeDeMedida: "mg"
         },
         {
             label: "Vitamina D",
@@ -126,6 +138,26 @@ export class Multivitaminico {
         {
             label: "Sodio",
             valor: sodioValor,
+            unidadeDeMedida: "mg"
+        },
+        {
+            label: "Cloro",
+            valor: cloroValor,
+            unidadeDeMedida: "mcg"
+        },
+        {
+            label: "Fósforo",
+            valor: fosforoValor,
+            unidadeDeMedida: "mcg"
+        },
+        {
+            label: "Potássio",
+            valor: potassioValor,
+            unidadeDeMedida: "mcg"
+        },
+        {
+            label: "Manganês",
+            valor: manganesValor,
             unidadeDeMedida: "mg"
         }
     ];
