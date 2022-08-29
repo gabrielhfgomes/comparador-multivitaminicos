@@ -168,15 +168,21 @@ export class Multivitaminico {
             if(this.nutrientes[i].valor == 0 && multi1.nutrientes[i].valor == 0) {
                 this.nutrientes[i].percentCompareColor = "color: blue";
                 this.nutrientes[i].percentCompareString = "0%"
+            } else if(multi1.nutrientes[i].valor == 0  && this.nutrientes[i].valor != 0) {
+                this.nutrientes[i].percentCompareColor = "color: red";
+                this.nutrientes[i].percentCompareString = "-100%"
+            } else if(this.nutrientes[i].valor == 0  && multi1.nutrientes[i].valor != 0) {
+                this.nutrientes[i].percentCompareColor = "color: green";
+                this.nutrientes[i].percentCompareString = "+100%"
             } else if(this.nutrientes[i].valor < multi1.nutrientes[i].valor) {
               this.nutrientes[i].percentCompareColor = "color: green";
-              this.nutrientes[i].percentCompareString = "+" + ((1-(this.nutrientes[i].valor/multi1.nutrientes[i].valor))*100).toFixed(1).toString() + "%"
+              this.nutrientes[i].percentCompareString = "+" + (((multi1.nutrientes[i].valor-this.nutrientes[i].valor)*100)/this.nutrientes[i].valor).toFixed(1).toString() + "%"
             } else if(this.nutrientes[i].valor == multi1.nutrientes[i].valor){
               this.nutrientes[i].percentCompareColor = "color: blue";
               this.nutrientes[i].percentCompareString = ((1-(multi1.nutrientes[i].valor/this.nutrientes[i].valor))*100).toFixed(1).toString() + "%"
             } else {
               this.nutrientes[i].percentCompareColor = "color: red";
-              this.nutrientes[i].percentCompareString = "-" + ((1-(multi1.nutrientes[i].valor/this.nutrientes[i].valor))*100).toFixed(1).toString() + "%"
+              this.nutrientes[i].percentCompareString = "-" + (((this.nutrientes[i].valor-multi1.nutrientes[i].valor)*100)/multi1.nutrientes[i].valor).toFixed(1).toString() + "%"
             }
         }
     }
